@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+
+@source '../views/**/*.blade.php';
+@source '../js/**/*.jsx';
+@source '../js/**/*.js';
+/* Kelas badge kategori didefinisikan di enum PHP (PostCategory::badgeClass). */
+@source '../../app/Features/**/*.php';
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    --animate-fade-in: fade-in 160ms ease-out both;
+    --animate-slide-up: slide-up 200ms ease-out both;
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Kursor pointer untuk seluruh tombol, tautan, dan menu interaktif */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'],
+a[href],
+select,
+summary,
+label[for],
+input[type='checkbox'],
+input[type='radio'],
+input[type='file'],
+[role='button'],
+[role='menuitem'] {
+    cursor: pointer;
+}
+
+button:disabled,
+[type='button']:disabled,
+[type='reset']:disabled,
+[type='submit']:disabled,
+[aria-disabled='true'] {
+    cursor: not-allowed;
+}
+
+/* Indikator fokus keyboard yang jelas */
+:focus-visible {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 2px;
+}
+
+/* Progress bar Inertia (NProgress) */
+#nprogress .bar {
+    height: 3px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================================
+   TOAST UI Viewer — penyesuaian tipografi & kontras warna (WCAG AA)
+   ========================================================================= */
+.article-content .toastui-editor-contents {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #1e293b;
+    overflow-wrap: anywhere;
+}
+
+.article-content .toastui-editor-contents p,
+.article-content .toastui-editor-contents li {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #1e293b;
+}
+
+.article-content .toastui-editor-contents h1,
+.article-content .toastui-editor-contents h2,
+.article-content .toastui-editor-contents h3,
+.article-content .toastui-editor-contents h4 {
+    color: #0f172a;
+    border-bottom-color: #e2e8f0;
+}
+
+.article-content .toastui-editor-contents h2 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    margin-top: 1.75rem;
+}
+
+.article-content .toastui-editor-contents h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.article-content .toastui-editor-contents a {
+    color: #1d4ed8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.article-content .toastui-editor-contents a:hover {
+    color: #1e3a8a;
+}
+
+.article-content .toastui-editor-contents blockquote,
+.article-content .toastui-editor-contents blockquote p,
+.article-content .toastui-editor-contents blockquote ul,
+.article-content .toastui-editor-contents blockquote ol {
+    color: #334155;
+}
+
+.article-content .toastui-editor-contents blockquote {
+    border-left-color: #3b82f6;
+    background-color: #eff6ff;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.75rem 1rem;
+}
+
+.article-content .toastui-editor-contents code {
+    color: #9f1239;
+    background-color: #fff1f2;
+    font-size: 0.9em;
+}
+
+.article-content .toastui-editor-contents pre {
+    background-color: #0f172a;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+}
+
+.article-content .toastui-editor-contents pre code {
+    color: #e2e8f0;
+    background-color: transparent;
+}
+
+.article-content .toastui-editor-contents del {
+    color: #475569;
+}
+
+.article-content .toastui-editor-contents ol > li::before {
+    color: #475569;
+}
+
+.article-content .toastui-editor-contents img {
+    border-radius: 0.75rem;
+    height: auto;
+}
+
+/* Editor TOAST UI di dalam modal — kontras teks tab & placeholder (WCAG AA) */
+.markdown-editor .toastui-editor-defaultUI {
+    border-color: #cbd5e1;
+    border-radius: 0.75rem;
+}
+
+.markdown-editor .toastui-editor-md-tab-container .tab-item,
+.markdown-editor .toastui-editor-mode-switch .tab-item {
+    color: #334155;
+}
+
+.markdown-editor .toastui-editor-md-tab-container .tab-item.active,
+.markdown-editor .toastui-editor-mode-switch .tab-item.active {
+    color: #1e3a8a;
+}
+
+.markdown-editor .ProseMirror .placeholder,
+.markdown-editor .toastui-editor-contents-placeholder::before {
+    color: #64748b;
+}
