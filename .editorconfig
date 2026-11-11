@@ -16,3 +16,8 @@ indent_size = 2
 
 [{compose,docker-compose}.{yml,yaml}]
 indent_size = 4
+
+# Jenkinsfile harus identik (SHA256) dengan template kursus: jangan tambah newline akhir / trim spasi
+[Jenkinsfile]
+insert_final_newline = false
+trim_trailing_whitespace = false
